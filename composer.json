@@ -4,8 +4,7 @@
     "type": "project",
     "require": {
         "eftec/bladeone": "^1.9",
-        "vlucas/phpdotenv": "^2.4",
-        "vlucas/valitron": "^1.4"
+        "vlucas/phpdotenv": "^2.4"
     },
     "autoload": {
         "psr-4": {

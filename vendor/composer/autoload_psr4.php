@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'eftec\\' => array($vendorDir . '/eftec', $vendorDir . '/eftec/bladeone/vendor/eftec'),
-    'Valitron\\' => array($vendorDir . '/vlucas/valitron/src/Valitron'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'App\\' => array($baseDir . '/clases'),
 );

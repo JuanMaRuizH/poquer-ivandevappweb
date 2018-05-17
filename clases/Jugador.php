@@ -1,24 +1,23 @@
 <?php
 namespace App;
 
-use \DS\Vector;
 class Jugador
 {
     private $jugada;
 
-    }
+    
 
     public function __construct()
     {
         
     }
 
-    public function getJugada(): Vector
+    public function getJugada(): array
     {
-        return $this->identificador;
+        return $this->jugada;
     }
 
-    public function setJugada(Vector $jugada)
+    public function setJugada(array $jugada)
     {
         $this->jugada = $jugada;
     }

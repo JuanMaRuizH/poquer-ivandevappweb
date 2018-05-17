@@ -1,0 +1,9 @@
+<?php $_shouldextend['5af9d429aeeaf']=1; ?> 
+<?php $this->startSection('title'); ?> Conexion BD
+<?php $this->stopSection(); ?>
+ 
+ 
+<?php $this->startSection('content'); ?>
+<p>Error de conexión a la BBDD. Inténtelo más tarde<p>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend['5af9d429aeeaf']) { echo $this->runChild('app'); } ?>

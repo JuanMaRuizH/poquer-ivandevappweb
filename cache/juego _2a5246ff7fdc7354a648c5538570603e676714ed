@@ -1,0 +1,55 @@
+<?php $_shouldextend['5afd82395f607']=1; ?> 
+<?php $this->startSection('topright'); ?>
+<div class="d-flex dropdown p-2">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+            <?php echo static::e($poker->getJugador1()->getIdentificador()); ?> 
+        </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="index.php?botonpetlogout">Logout</a>
+    </div>
+</div>
+<?php $this->stopSection(); ?>
+ 
+<?php $this->startSection('content'); ?>
+
+<div class="d-flex flex-column">
+    <div class="h4 mt-5"> Tus cartas son:</div>
+
+    <div class="d-flex  mb-5">
+        <?php $__currentLoopData = $poker->getJugador1()->getJugada(); $this->addLoop($__currentLoopData); foreach($__currentLoopData as $carta): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+        <img class="m-10" src="<?php echo static::e(" img/" . $carta->getPalo() . "/" . $carta->getValor() . $carta->getPalo()[0] . ".svg"); ?>" alt="Card image cap">        
+        <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+    </div>
+</div>
+
+<div class="d-flex flex-column">
+    <div class="h4 mt-5"> Las cartas de la banca son:</div>
+
+    <div class="d-flex mb-5">
+        <?php $__currentLoopData = $poker->getJugador2()->getJugada(); $this->addLoop($__currentLoopData); foreach($__currentLoopData as $carta): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+        <img class="m-10" src="<?php echo static::e(" img/" . $carta->getPalo() . "/" . $carta->getValor() . $carta->getPalo()[0] . ".svg"); ?>" alt="Card image cap">        
+        <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+    </div>
+</div>
+<?php $this->stopSection(); ?>
+ 
+<?php $this->startSection('mensaje'); ?> 
+
+<?php if($victoria): ?>
+<div class="d-flex  flex-column">
+    <div class="h4"> Has Ganado!!</div>
+</div>
+<?php else: ?>
+<div class="d-flex  flex-column">
+    <div class="h4"> Has perdido!!</div>
+</div>
+<?php endif; ?>
+<ul class="nav navbar-nav">
+    <li>
+        <a class="nav-item active" href="index.php?botonvolverajugar">Nueva Partida</a>
+    </li>
+</ul>
+
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend['5afd82395f607']) { echo $this->runChild('app'); } ?>

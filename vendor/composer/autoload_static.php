@@ -11,10 +11,6 @@ class ComposerStaticInit3e1851933513e119c25da11f0ec2e47f
         array (
             'eftec\\' => 6,
         ),
-        'V' => 
-        array (
-            'Valitron\\' => 9,
-        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -30,10 +26,6 @@ class ComposerStaticInit3e1851933513e119c25da11f0ec2e47f
         array (
             0 => __DIR__ . '/..' . '/eftec',
             1 => __DIR__ . '/..' . '/eftec/bladeone/vendor/eftec',
-        ),
-        'Valitron\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
         ),
         'Dotenv\\' => 
         array (

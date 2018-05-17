@@ -34,18 +34,6 @@ class Usuario extends Jugador
         $this->identificador = $identificador;
     }
 
-    public function getJugada(): Jugada
-    {
-        return $this->identificador;
-    }
-
-    public function setJugada(Jugada $jugada)
-    {
-        $this->jugada = $jugada;
-    }
-
-
-
     public function getClave(): ?string
     {
         return $this->clave;

@@ -1,37 +1,54 @@
-@extends('app')
-
+@extends('app') 
 @section('topright')
 <div class="d-flex dropdown p-2">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-            {{ $usuario->getIdentificador() }} 
+            {{ $poker->getJugador1()->getIdentificador() }} 
         </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="index.php?botonpetperfil">Perfil</a>
         <a class="dropdown-item" href="index.php?botonpetlogout">Logout</a>
-        <a class="dropdown-item" href="index.php?botonpetbaja">Baja</a>
     </div>
 </div>
 @endsection
-
+ 
 @section('content')
 
-<div class="d-flex justify-content-center mt-4">
-    Bienvenido {{ $usuario->getIdentificador() }} !!
+<div class="d-flex flex-column">
+    <div class="h4 mt-5"> Tus cartas son:</div>
+
+    <div class="d-flex  mb-5">
+        @foreach ($poker->getJugador1()->getJugada() as $carta)
+        <img class="m-10" src="{{ " img/" . $carta->getPalo() . "/" . $carta->getValor() . $carta->getPalo()[0] . ".svg" }}" alt="Card image cap">        
+        @endforeach
+    </div>
 </div>
-<div class="d-flex justify-content-center mt-4">   
-    <img style="flex: 1; object-fit: scale-down; height:250px" class="col-md-8 rounded" src= '{{ "img/".$cuadro->getImagen() }}'/>   
+
+<div class="d-flex flex-column">
+    <div class="h4 mt-5"> Las cartas de la banca son:</div>
+
+    <div class="d-flex mb-5">
+        @foreach ($poker->getJugador2()->getJugada() as $carta)
+        <img class="m-10" src="{{ " img/" . $carta->getPalo() . "/" . $carta->getValor() . $carta->getPalo()[0] . ".svg" }}" alt="Card image cap">        
+        @endforeach
+    </div>
 </div>
-@if (isset ($geolocation))
-<div id="coor" data-region="{{$geolocation->region_name}}" data-country="{{$geolocation->country_name}}" data-continent="{{$geolocation->continent_name}}" style="display: none;"></div>
-<div class="d-flex justify-content-center mt-4">      
-    <div id="map" style="flex: 1; object-fit: scale-down; height:250px" class="col-md-8 rounded"></div>   
+@endsection
+ 
+@section('mensaje') 
+
+@if($victoria)
+<div class="d-flex  flex-column">
+    <div class="h4"> Has Ganado!!</div>
+</div>
+@else
+<div class="d-flex  flex-column">
+    <div class="h4"> Has perdido!!</div>
 </div>
 @endif
+<ul class="nav navbar-nav">
+    <li>
+        <a class="nav-item active" href="index.php?botonvolverajugar">Nueva Partida</a>
+    </li>
+</ul>
 
-@endsection
-
-@section ('script')
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrr-VtPrN852IJbkdX8QkkXBEmsZBuJms&callback=initMap&libraries=places"></script>
-<script src="js/citymuseums.js"></script>
 @endsection
