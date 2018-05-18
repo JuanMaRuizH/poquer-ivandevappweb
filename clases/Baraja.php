@@ -4,7 +4,6 @@ namespace App;
 class Baraja
 {
     private $cartas;
-    private $cartasRepartidas;
     private $numCartas;
     private $numSigCarta;
 
@@ -46,24 +45,8 @@ class Baraja
 
     public function reset(): void
     {
-        $this->setCartasRepartidas([]);
         $this->numSigCarta = 0;
         $this->mezcla();
-    }
-
-    public function getCartasRepartidas(): array
-    {
-        return $this->cartasRepartidas;
-    }
-
-    public function setCartasRepartidas(array $cartas)
-    {
-        $this->cartasRepartidas = $cartas;
-    }
-
-    public function anyadeCartaRepartida(Carta $carta)
-    {
-        $this->cartasRepartidas[] = $carta;
     }
 
     public function getNumCartas(): int

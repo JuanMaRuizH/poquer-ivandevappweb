@@ -16,19 +16,21 @@
                     <div class="form-group row">
                         <label for="inputIdentificador" class="col-sm-2 col-form-label">Identificador</label>
                         <div class="col-sm-10">
-                            <input type="text" id="inputIdentificador" placeholder="Identificador" name="identificador"
-                            value="{{ (isset($identificador)) ? $identificador : '' }}"
-                                class="form-control col-sm-10 {{ isset($errores) ? (isset($errores['identificador']) ? 'is-invalid ' : 'is-valid ') : '' }}">
-                            <div class="col-sm-10 invalid-feedback" id="error-for-inputIdentificador">{{ $errores['identificador'] }}</div>
+                            <input type="text" id="inputIdentificador" placeholder="Identificador" name="identificador" required
+                            value="{{ (isset($identificador)) ? $identificador : '' }}" title="El identificador no tiene el formato correcto"
+                            pattern="[a-z][a-zA-Z0-9]{2,9}"
+                                class="form-control col-sm-10">
+                            <div class="col-sm-10 invalid-feedback" id="error-for-inputIdentificador"></div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" id="inputPassword" placeholder="Password" name="clave"
-                            value="{{ (isset($clave)) ? $clave : '' }}"
-                                class="form-control col-sm-10 {{ isset($errores) ? (isset($errores['clave']) ? 'is-invalid ' : 'is-valid ') : '' }}">
-                            <div class="col-sm-10 invalid-feedback" id="error-for-inputPassword">{{ $errores['clave'] }}</div>                          
+                            <input type="password" id="inputPassword" placeholder="Password" name="clave" required
+                            value="{{ (isset($clave)) ? $clave : '' }}" title="La clave no tiene el formato correcto"
+                            pattern="\d{8}"
+                                class="form-control col-sm-10">
+                            <div class="col-sm-10 invalid-feedback" id="error-for-inputPassword"></div>                          
                         </div>
                     </div>
                     <div class="form-group">
@@ -43,4 +45,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script src="js/formvalidation.js"></script>
 @endsection
